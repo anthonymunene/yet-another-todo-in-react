@@ -1,5 +1,5 @@
 {
-  "name": "egghead-production-ready-react",
+  "name": "yet-another-todo-in-react",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,10 +10,10 @@
     "react-scripts": "1.0.10"
   },
   "lint-staged": {
-   "src/**/*.{js,jsx,json,css}": [
-     "prettier --single-quote --write",
-     "git add"
-   ]
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   },
   "scripts": {
     "precommit": "flow && lint-staged",
@@ -22,12 +22,14 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "flow": "flow"
+    "flow": "flow",
+    "server": "json-server -p 8080 --watch db.json"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-flow": "^6.23.0",
     "flow-bin": "^0.53.1",
+    "json-server": "^0.12.0",
     "jest": "^20.0.4",
     "prettier": "^1.6.1"
   }

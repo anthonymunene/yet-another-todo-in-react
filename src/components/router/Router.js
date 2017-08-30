@@ -1,16 +1,21 @@
+// @flow
 import React, { Component } from 'react'
+import { PropTypes } from 'prop-types'
 const getCurrentPath = () => {
   const path = document.location.pathname
   return path.substring(path.lastIndexOf('/'))
 }
+type State = {
+  route: string
+}
 
-export class Router extends Component {
+export class Router extends Component<any, State> {
   state = {
     route: getCurrentPath()
   }
   static childContextTypes = {
-    route: React.PropTypes.string,
-    linkHandler: React.PropTypes.func
+    route: PropTypes.string,
+    linkHandler: PropTypes.func
   }
 
   getChildContext() {
@@ -19,7 +24,7 @@ export class Router extends Component {
       linkHandler: this.handleLinkClick
     }
   }
-  handleLinkClick = route => {
+  handleLinkClick = (route: string) => {
     this.setState({ route })
     window.history.pushState(null, '', route)
   }

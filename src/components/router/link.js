@@ -1,11 +1,18 @@
+// @flow
 import React, { Component } from 'react'
+import { PropTypes } from 'prop-types'
 
-export class Link extends Component {
+type Props = {
+  to: string,
+  children: any
+}
+
+export class Link extends Component<Props> {
   static contextTypes = {
-    route: React.PropTypes.string,
-    linkHandler: React.PropTypes.func
+    route: PropTypes.string,
+    linkHandler: PropTypes.func
   }
-  handleClick = evt => {
+  handleClick = (evt: SyntheticEvent<HTMLButtonElement>) => {
     evt.preventDefault()
     this.context.linkHandler(this.props.to)
   }
